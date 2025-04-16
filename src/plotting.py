@@ -19,4 +19,15 @@ def plot_forecast(model, train_df, test_df, save_path="outputs/forecast_plot.png
 
     os.makedirs(os.path.dirname(save_path), exist_ok=True)
     plt.savefig(save_path)
+
+    plt.savefig(save_path)
+    plt.close()
+
+    if os.path.exists(save_path):
+        print("✅ Plot wurde erfolgreich gespeichert.")
+    else:
+        print("❌ Plot wurde NICHT gespeichert.")
+
+    print("📂 Inhalt von 'outputs/':", os.listdir("outputs"))
+
     print(f"📸 Plot gespeichert unter: {save_path}")
