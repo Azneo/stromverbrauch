@@ -27,6 +27,13 @@ jobs:
       - name: Run dummy test
         run: pytest tests/test_dummy.py
 
+      - name: 📦 Speichere Forecast-Plot als Artefakt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: forecast-plot
+          path: outputs/forecast_plot.png
+
   run-main:
     runs-on: ubuntu-latest
     needs: test  # Only runs if tests succeed
