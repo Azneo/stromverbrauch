@@ -1,8 +1,9 @@
 import os
+import pandas as pd
 import matplotlib.pyplot as plt
 
 def plot_forecast(model, train_df, test_df, save_path="outputs/forecast_plot.png"):
-    all_df = train_df.append(test_df)
+    all_df = pd.concat([train_df, test_df])
     future = model.make_future_dataframe(periods=30)
     forecast = model.predict(future)
 
